@@ -3,13 +3,13 @@ import Image from 'next/image'
 import Tabs from '../components/TabComponent'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button } from 'react-bootstrap';
-import { PrismaClient } from '@prisma/client';   
+import { PrismaClient } from '@prisma/client';  
 import { useState } from 'react';
 import axios from 'axios';
 import TabComponent from '../components/TabComponent';
 
-const prisma = new PrismaClient();    
-
+   
+const prisma = new PrismaClient();
 
 export default function Home({tab}) {
 
