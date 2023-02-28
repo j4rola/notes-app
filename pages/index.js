@@ -2,11 +2,12 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Tabs from '../components/TabComponent'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button } from 'react-bootstrap';
 import { PrismaClient } from '@prisma/client';  
 import { useState } from 'react';
-import axios from 'axios';
+
 import TabComponent from '../components/TabComponent';
+
+import AddTab from '../components/AddTab';
 
    
 const prisma = new PrismaClient();
@@ -24,7 +25,7 @@ export default function Home({tab}) {
       <TabComponent tab={tab}>
 
       </TabComponent>
-      <Button variant='success' className='btn rounded'><h1 className='text-light'>Add Tab</h1></Button>
+      <AddTab></AddTab>
       
     </div>
   )

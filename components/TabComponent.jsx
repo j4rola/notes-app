@@ -20,7 +20,7 @@ function TabComponent({tab}) {
   const getData = async (e) => {
     updateLoading(true)
     console.log(e.target.id)
-    const data = await axios.post('/api/hello', {id: parseInt(e.target.id)}) 
+    const data = await axios.post('/api/get-tabs', {id: parseInt(e.target.id)}) 
     console.log(data.data.notes)
     updateNotes(data.data.notes)
     updateLoading(false)
@@ -29,7 +29,7 @@ function TabComponent({tab}) {
   console.log(tab)
   return (
     <Tab.Container id="left-tabs-example" defaultActiveKey="first">
-      <Row>
+      <Row className='d-flex flex-row'>
         <Col sm={3}>
           <Nav variant="pills" className="flex-column">
           {tab.map(x => 
@@ -44,7 +44,7 @@ function TabComponent({tab}) {
           <Tab.Content>
             
             {  notes.map(x => <p>{x.body}</p>) }
-            
+
           </Tab.Content> 
         </Col> 
       </Row> 
