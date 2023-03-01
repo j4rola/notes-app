@@ -25,7 +25,7 @@ export default function Home({tab}) {
       <TabComponent tab={tab}>
 
       </TabComponent>
-      <AddTab></AddTab>
+      
       
     </div>
   )
