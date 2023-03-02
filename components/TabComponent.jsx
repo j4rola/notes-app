@@ -67,15 +67,15 @@ function TabComponent({tab}) {
   }
 
   const handleDelete = async (id) => {
-    // const newArray = myState.filter(x => x.id !== id)
+    // const newArray = myState.filter(x => x.id !== id)  
     // setMyState(newArray) 
 
-    // console.log(myState)
+    // console.log(myState) 
 
     console.log(`myState is ${myState}`)
-    const newArray = tabs.filter(x => x.id !== id)
-    console.log( `newArray is ${newArray}`)
-    updateTabs(newArray)
+    const newArray = tabs.filter(x => x.id !== id)  
+    console.log( `newArray is ${newArray}`) 
+    updateTabs(newArray) 
     
     const deleted = await axios.post('api/delete-tab', {id: parseInt(id)}) 
 
@@ -83,18 +83,15 @@ function TabComponent({tab}) {
 
   const handleDeleteNote = async (id) => {
     
+    updateNotes(notes.filter(x => x.id !== id))
     const response = await axios.post('/api/delete-note', { id: parseInt(id)})
-    
-    const data = await axios.post('/api/get-tabs', {id: parseInt(currentTab)}) 
-    console.log(data.data.notes)
-    updateNotes(data.data.notes)
     updateNoteBody('')
 
   }
 
   console.log(tab)
   return (
-    <><Tab.Container id="left-tabs-example" defaultActiveKey="first">
+    <><Tab.Container id="left-tabs-example" defaultActiveKey="first">   
       <Row className='d-flex flex-row'>
         <Col sm={3}>
           <Nav variant="pills" className="flex-column">  
@@ -112,7 +109,7 @@ function TabComponent({tab}) {
         <Col sm={9}>
           <Tab.Content className='p-4'> 
             
-            {  notes.map(x => <p>{x.body} <span style={{color: 'red'}} id={x.id} onClick={() => handleDeleteNote(x.id)}>x</span></p>) } 
+            {  notes.map(x => <p>{x.body} <span style={{color: 'red', cursor: 'pointer', fontWeight: 'bold'}} id={x.id} onClick={() => handleDeleteNote(x.id)}>x</span></p>) } 
 
             <Form.Control style={{width: '100px'}} onChange={(e) => handleNoteChange(e)} type="text"  placeholder="New Note" value={noteBody} />
             <Button onClick={(e) => handleSubmitNote(e)} variant='success' className='btn rounded'>Add Note</Button>
@@ -120,13 +117,13 @@ function TabComponent({tab}) {
           </Tab.Content> 
         </Col> 
       </Row> 
-    </Tab.Container>
+    </Tab.Container>  
 
     <div>  
-    <Form.Control style={{width: '100px'}} onChange={(e) => handleChange(e)} type="text"  placeholder="New Tab Name" value={tabName} />
-    <Button onClick={(e) => handleSubmit(e)} variant='success' className='btn rounded'>Add Tab</Button>
+    <Form.Control style={{width: '100px'}} onChange={(e) => handleChange(e)} type="text"  placeholder="New Tab Name" value={tabName} /> 
+    <Button onClick={(e) => handleSubmit(e)} variant='success' className='btn rounded'>Add Tab</Button>  
     
-    </div></>
+    </div></>  
   );
 }
 
