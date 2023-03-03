@@ -4,4 +4,6 @@ const nextConfig = {
   swcMinify: true,
 }
 
-module.exports = nextConfig
+
+module.exports = { nextConfig, env: {
+  DATABASE_URL: process.env.DATABASE_URL} }

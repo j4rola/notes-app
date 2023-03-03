@@ -4,9 +4,7 @@ import Tabs from '../components/TabComponent'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { PrismaClient } from '@prisma/client';  
 import { useState } from 'react';
-
 import TabComponent from '../components/TabComponent';
-
 import AddTab from '../components/AddTab';
 
    
